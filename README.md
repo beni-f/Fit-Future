@@ -18,7 +18,7 @@ To get started with Fit-Future, follow these steps:
     `pip install -r requirements.txt`
 - Set Up Database: Configure your database settings in config.py and initialize the database:
     ```flask db init
-    flask db migrate
+    ```flask db migrate```
     flask db upgrade```
 - Run the Application: Start the Flask development server to run the application locally:
     `flask run`
