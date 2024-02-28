@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-FyZjFBnEriD6D1qEXZexnMuy0N5wM1g0T8YZvIsfYHxKCfGCD8Pkf0r0ZUqzU5yJ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c6a8e8b0a7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/account.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css')}}">
+    </head>
+    <style>
+        .container{
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(30, 29, 29, 0.75)), url("{{ url_for('static', filename='images/background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+    </style>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="{{ url_for('static', filename='images/logo-white.png') }}" class="logo">
+            <ul>
+                <li><a href="{{ url_for('articles') }}">Article</a></li>
+                <li><a href="#">Workout Planning</a></li>
+                <li><a href="#">Progress Tracking</a></li>
+                <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+            </ul>
+        </div>
+        <form method="POST" action="/register" class="form-box">
+            <h1>Sign Up</h1>
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <i class="fa-solid fa-user"></i>
+                <label for="firstname" class="form-label">First Name</label>
+                {% if form.firstname.errors %}
+                        {{ form.firstname(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.firstname.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.firstname(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <div class="mb-3 form-group">
+                <i class="fa-solid fa-user"></i>
+                <label for="lastname" class="form-label">Last Name</label>
+                {% if form.lastname.errors %}
+                        {{ form.lastname(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.lastname.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.lastname(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <div class="mb-3 form-group">
+                <i class="fa-solid fa-user"></i>
+                <label for="username" class="form-label">Username</label>
+                {% if form.username.errors %}
+                        {{ form.username(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.username.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.username(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <i class="fa-solid fa-person"></i>
+                <select name="gender" class="form-control form-label" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="mb-3 form-group">
+                <i class="fa-solid fa-person"></i>
+                <label for="height" class="form-label">Height(in cm)</label>
+                {% if form.height.errors %}
+                        {{ form.height(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.height.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.height(class='form-control form-control-lg') }}  
+                {% endif %}
+                <i class="fa-solid fa-person"></i>
+                <label for="weight" class="form-label">Weight</label>
+                {% if form.weight.errors %}
+                        {{ form.weight(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.weight.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.weight(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <div class="mb-3 form-group">
+                <i class="fa-solid fa-envelope"></i>
+                <label for="email" class="form-label">Email</label>
+                {% if form.email.errors %}
+                        {{ form.email(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.email.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.email(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <div class="mb-3 form-group">
+                <i class="fa-solid fa-lock"></i>
+                <label for="password" class="form-label">Password</label>
+                {% if form.password.errors %}
+                        {{ form.password(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.password.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.password(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <div class="mb-3 form-group">
+                <i class="fa-solid fa-lock"></i>
+                <label for="confirm_password" class="form-label">Confirm Password</label>
+                {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.confirm_password(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">{{ form.submit }}</button>
+        </form>
+    </div>
+    <div>
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-1" href="{{url_for('login')}}">Login</a>
+        </small>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-x9SGUjkf4EV5eqQjllA5oYfoMzhpXkH2AB/sDU39+5eIIboZ/+F2gYagIxhFhA1t" crossorigin="anonymous"></script>
+</body>
+</html>

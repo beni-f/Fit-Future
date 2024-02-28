@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Future</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+    <style>
+        .top-body {
+            width: 100%;
+            height: 700px;
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("{{ url_for('static', filename='images/background.jpg') }}");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-body">
+        <div class="navbar">
+            <img src="{{ url_for('static', filename='images/logo-white.png') }}" class="logo">
+            <ul>
+                <li><a href="{{ url_for('articles') }}">Article</a></li>
+                <li><a href="#">Workout Planning</a></li>
+                <li><a href="#">Progress Tracking</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

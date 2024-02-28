@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Future</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/article.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+    <div class="top-body">
+        <div class="navbar">
+            <img src="{{ url_for('static', filename='images/logo-white.png') }}" class="logo">
+            <ul>
+                <li><a href="{{ url_for('articles') }}">Article</a></li>
+                <li><a href="#">Workout Planning</a></li>
+                <li><a href="#">Progress Tracking</a></li>
+                <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+</body>
+</html>
