@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Future</title>
+    
+    <!--Font style CSS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,200&display=swap" rel="stylesheet">
+
+    <!--CSS links-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/account.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/workout.css') }}">
+
+    <!--More CSS links-->
+    <script src="https://kit.fontawesome.com/c6a8e8b0a7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
+    <!---JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('home')}}"><img src="{{ url_for('static', filename='images/logo-black.png') }}" class="logo"></a>
+        <ul>
+            <li><a href="{{ url_for('articles') }}" class="links" >Article</a></li>
+            <li><a href="{{ url_for('workout')}}" class="links">Workout Planning</a></li>
+            <li><a href="#" class="links">Progress Tracking</a></li>
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('account') }}" class="links">Account</a></li>
+            <li><a href="{{ url_for('logout') }}" class="nav-btn">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('register') }}" class="nav-btn">Sign Up</a></li>
+            <li><a href="{{ url_for('login') }}" class="nav-btn">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="workout-days">
+        <h1>Plan Your Workouts Here</h1>
+        <button>Monday</button>
+        <button>Tuesday</button>
+        <button>Wednesdey</button>
+        <button>Thursday</button>
+        <button>Friday</button>
+        <button>Saturday</button>
+        <button>Sunday</button>
+    </div>
+    {% block content %}{% endblock %}
+    <div class="muscle-group">
+        <p>Choose Muscle Group(s) to Workout On:</p>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/abs.png')}}">
+            <input type="checkbox" value="abdominals">
+            <label for="abdominals">abdominals</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/biceps.png')}}">
+            <input type="checkbox" value="biceps">
+            <label for="biceps">bicpes</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/calves.png')}}">
+            <input type="checkbox" value="calves">
+            <label for="calves">calves</label>
+        </div> 
+        <div>
+            <img src="{{ url_for('static', filename='workouts/chest.png')}}">
+            <input type="checkbox" value="chest">
+            <label for="chest">chest</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/forearm.png')}}">
+            <input type="checkbox" value="forearms">
+            <label for="forearms">forearms</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/glutes.png')}}">
+            <input type="checkbox" value="glutes">
+            <label for="glutes">glutes</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/hamstrings.png')}}">
+            <input type="checkbox" value="hamstrings">
+            <label for="hamstrings">hamstrings</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/lats.png')}}">
+            <input type="checkbox" value="lats">
+            <label for="lats">lats</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/lowerback.png')}}">
+            <input type="checkbox" value="lower_back">
+            <label for="lower_back">lower_back</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/middleback.png')}}">
+            <input type="checkbox" value="middle_back">
+            <label for="middle_back">mid_back</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/neck.png')}}">
+            <input type="checkbox" value="neck">
+            <label for="neck">neck</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/quadriceps.png')}}">
+            <input type="checkbox" value="quadriceps">
+            <label for="quadriceps">quadriceps</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/traps.png')}}">
+            <input type="checkbox" value="traps">
+            <label for="traps">traps</label>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='workouts/tricpes.png')}}">
+            <input type="checkbox" value="triceps">
+            <label for="tricpes">tricpes</label>
+        </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
+        <div class="workout-type" style="display: none;">
+    </div>
+    <button class="workout-done" style="display: none;">Done</button>
+
+    <script>
+    $(document).ready(function() {
+        $('.submit-btn').click(function() {
+            // Get the checked checkboxes
+            var apiKey = 'w734EO8RXw9YuAtNtnR4KQ==xUNu4KgxJTjHSHFj';
+            var checkedMuscles = $('.muscle-group input[type="checkbox"]:checked').map(function() {
+                return $(this).val();
+            }).get();
+            
+            // Fetch data for each checked muscle
+            $.each(checkedMuscles, function(index, muscle) {
+                $.ajax({
+                    url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle,
+                    headers: {
+                        'X-Api-Key': apiKey
+                    },
+                    type: 'GET',
+                    success: function(data) {
+                        var muscleHeader = $('<h1>').text(muscle);
+                        var muscleHeaderParagraph = $('<p>').append(muscleHeader);
+                        var muscleExercisesDiv = $('<div>');
+                        var muscleExercisesList = $('<ul>');
+
+                        $.each(data, function(index, exercise) {
+                            var exerciseItem = $('<li>');
+                            var checkbox = $('<input type="checkbox">')
+                                .attr('name', 'selected-exercises')
+                                .attr('value', exercise.name);
+                            var label = $('<label>').text(exercise.name);
+
+                            exerciseItem.append(checkbox, label);
+                            muscleExercisesList.append(exerciseItem);
+                        });
+
+                        muscleExercisesDiv.append(muscleExercisesList);
+
+                        // Append muscle header and exercises to the workout-type div
+                        $('.workout-type').append(muscleHeaderParagraph, muscleExercisesDiv);
+
+                        $('.workout-type').css('display', 'block');
+                        $('.workout-done').css('display', 'block')
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error fetching data for ' + muscle + ': ' + error);
+                    }
+                });
+            });
+        });
+    }); 
+    </script>
+    <script src="{{ url_for('static', filename='js/workout.js') }}"></script>
+</body>
+</html>

@@ -1,89 +1,63 @@
 body{
-    font-family: sans-serif;
+    font-family: Poppins;
     margin: 0;
 }
-.form-box{
-    width: 100%;
-    max-width: 450px;
-    margin-top: 100px;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: transparent;
-    padding: 50px 60px 70px;
-    text-align: center;
+
+.account-container{
+    width: 80%;
+    height: 60%;
+    margin: auto;
 }
 
-.form-box h1{
-    font-size: 30px;
-    margin-bottom: 10px;
-    margin-top: 0;
-    color: white;
-    text-align: left;
-    position: relative;
-}
+form h1{
+    font-size: 40px;
+    padding-left: 20px;
+    border-bottom: solid rgb(116, 114, 112);
 
-.form-box h1::after{
-    content:'';
-    width: 30px;
-    height: 4px;
-    border-radius: 3px;
-    background: white;
-    position: absolute;
-    bottom: -12px;
-    left: 10%;
-    transform: translate(-50%);
-}
-
-.form-group{
-    height: 7%;
-    background-color: rgb(247, 239, 229);
-    margin: 25px 0;
-    border-radius: 3px;
-    text-align: left;
-}
-
-input{
-    width: 15%;
 }
 
 .form-group i{
-    margin: 10px;
+    margin: 10px 5px;
 }
 
-input, select{
-    background: transparent;
-    border: 0;
-    outline: 0;
-    padding: 18px 15px;
+.form-group label{
+    display: inline-block;
+    margin-top: 5px;
 }
 
-.form-label{
-    margin-bottom: 20px;
-    font-size: 17px;
+.form-group input{
+    border:solid;
+    display: block;
+    width: 50%;
+    height: 30px;
+    margin-left: 18px;
 }
 
-.btn{
-    margin-top: 35px;
+.metrics input{
+    border: solid;
+    display: inline-block;
+    width: 25%;
+}
+.invalid-feedback{
+    color: red;
+    font-size: 13px;
+}
+
+.btn input{
+    border: none;
     color: white;
     font-size: 17px;
-    font-weight: 400;
-    background-color: rgb(29, 27, 27);
-    width: 150px;
-    height: 40px;
-    border: none;
-    border-radius: 26px;
+    background-color: black;
+    margin: 20px;
+    width: 120px;
+    height: 35px;
+    border-radius: 20px;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-.btn:hover{
-    color: rgb(29, 27, 27);
-    background-color: #b4a9a9;
-    border: solid #9b8f8f;
+.btn input:hover{
+    color: black;
+    background-color: rgb(225, 225, 225);
 }
 
-.invalid-feedback{
-    border: red;
-    margin: 0;
-}

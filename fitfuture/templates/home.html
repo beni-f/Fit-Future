@@ -1,39 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fit Future</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
-    <style>
-        .top-body {
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(30, 29, 29, 0.75)), url("{{ url_for('static', filename='images/background.jpg') }}");
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-    </style>
-</head>
-<body>
-    <div class="top-body">
-        <div class="navbar">
-            <img src="{{ url_for('static', filename='images/logo-white.png') }}" class="logo">
-            <ul>
-                <li><a href="{{ url_for('articles') }}">Article</a></li>
-                <li><a href="#">Workout Planning</a></li>
-                <li><a href="#">Progress Tracking</a></li>
-                <li><a href="{{ url_for('register') }}">Sign Up</a></li>
-            </ul>
-        </div>
+{% extends "layout.html" %}
+{% block content %}
+    <section class="container">
         <div class="content">
-            <h1>Building Better Bodies, Building Brighter Futures</h1>
-            <h3>Join now and start your journey with us</h3>
+            <h1>Building Better Bodies,<br>
+                <span class="heading">Brighter Futures</span>
+            </h1>
+            <p>
+                Join now and start your journey with us
+            </p>
             <button>Join Now</button>
-            <button>View Articles</button>
         </div>
-    </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/img-1.jpg') }}">
+            <img src="{{ url_for('static', filename='images/img-1.jpg') }}">
+            <div class="image-content">
+                <ul>
+                    <li>Start building your workouts now</li>
+                    <li>Educate yourself</li>
+                </ul>
+            </div>
+        </div>
+    </section>
     <div class="bottom-body">
         <h1> Trending Articles </h1>
         <div class="article-wrapper">
@@ -52,7 +39,4 @@
             {% endfor %}
         </div>
     </div>
-    
-    <script type="text/javascript" src="{{ url_for('static', filename='js/scroll.js') }}"></script>
-</body>
-</html>
+{% endblock content %}

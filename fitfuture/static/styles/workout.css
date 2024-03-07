@@ -1,0 +1,112 @@
+body{
+    margin: 30px;
+}
+input[type="radio"] {
+    display: none;
+}
+
+.workout-days button{
+    margin: 20px;
+    width: 70%;
+    height: 50px;
+    background-color: rgb(251, 251, 251);
+    font-weight: bolder;
+    font-family: 'Poppins';
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.muscle-group input{
+    display: none;
+}
+
+.muscle-group div{
+    border: solid;
+    display: inline-block;
+    margin: 20px;
+    width: 30%;
+    height: 60px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.muscle-group label{
+    font-weight: bold;
+    top: 30%;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.muscle-group img{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.workout-done,
+.muscle-group button{
+    display: block;
+    width: 150px;
+    height: 40px;
+    font-size: 17px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    margin: 25px;
+    cursor: pointer;
+    margin-left: 23%;
+}
+
+
+
+.muscle-group .checked-border{
+    border: 2px solid rgb(7, 101, 189);
+}
+
+.muscle-group .checked-border label{
+    color:rgb(7, 101, 189);;
+}
+
+.workout-type{
+    border: solid;
+    position: relative;
+    width: 80%;
+    max-width: 80%;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.workout-type ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.workout-type h1{
+    margin-bottom: 0;
+    font-size: 30px;
+    padding-left: 20px;
+    border-bottom: solid 2px;
+    border-bottom-color: lightgray;
+    cursor: pointer;
+}
+
+.workout-type div{
+    margin-top: 0;
+}
+.workout-type label{
+    display: inline-block;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    margin-left: 0;
+    background-color: rgb(240, 240, 240);
+}
+
+.workout-type label:hover{
+    background-color: lightgray;
+}

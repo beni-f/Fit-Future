@@ -1,8 +1,10 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(251, 251, 251);
 }
+
 
 
 
@@ -13,6 +15,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: solid rgb(235, 231, 231)
 }
 
 .logo{
@@ -30,24 +33,36 @@ body{
 
 .navbar ul li a{
     text-decoration: none;
-    color: white;
+    color: black;
     text-transform: uppercase;
 }
 
-.navbar ul li::after{
+.links::after{
     content: '';
     height: 2px;
     width: 0;
-    background: white;
+    background: black;
     position: absolute;
     left: 0;
     bottom: -10px;
     transition: 0.5s;
 }
 
-.navbar ul li:hover::after{
+.links:hover::after{
     width: 100%;
 }
+
+.nav-btn{
+    padding: .5rem 2rem;
+    border: solid;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.nav-btn:hover{
+    background-color: rgb(233, 233, 233);
+}
+
 
 .bottom-body h1{
     text-align: center;
@@ -55,25 +70,43 @@ body{
     font-size: 40px;
 }
 
+.container{
+    top: 50%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+}
+
 .content{
-    width: 100%;
-    color: white;
-    position: absolute;
-    top: 30%;
-    text-align: center;
-    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .content h1{
     font-size: 50px;
+    font-weight: 400;
+    line-height: 3.5rem;
+    color: black;
+    margin-bottom: 5px;
 }
 
-.content h3{
-    font-weight: 100;
+.content p{
+    font-weight: 700;
+    color: rgb(67, 65, 65);
+    margin-bottom: 5px;
+}
+
+.heading{
+    font-weight: 700;
+    color: rgb(66, 62, 62);
 }
 
 .content button{
-    background-color: white;
+    background-color: rgb(188, 184, 184);
     font-size: 16px;
     border: none;
     height: 50px;
@@ -89,6 +122,47 @@ body{
     color: white;
 }
 
+.image-container{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    place-content: center;
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 300%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.image-container img:nth-child(1){
+    transform: translateY(70px);
+}
+
+.image-container img:nth-child(2){
+    transform: translateY(-70px);
+}
+
+.image-content{
+    position: absolute;
+    width: 100%;
+    max-width: 310px;
+    left: 50%;
+    top:50%;
+    transform: translate(-35%, 50%);
+    background: linear-gradient(to right,
+        black, grey
+    );
+    color: white;
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+
+.image-content li{
+    margin-bottom: 5px;
+}
 .article-wrapper {
     display: flex;
     flex-wrap: wrap;
