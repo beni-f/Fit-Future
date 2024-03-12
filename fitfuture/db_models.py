@@ -36,12 +36,10 @@ class Article(db.Model):
 
 class Workout(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    workout_name = db.Column(db.String(30), nullable=False)
-    workout_type = db.Column(db.String(30), nullable=False)
+    workout_day = db.Column(db.String(50), nullable=False)
+    muscle_groups = db.Column(db.String(200), nullable=False)
+    workout_type = db.Column(db.String(200), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
-    def __repr__(self):
-        return f"Workout('{self.workout_name}', '{self.workout_type}')"
 
 class Progress(db.Model):
     id = db.Column(db.Integer, primary_key=True)

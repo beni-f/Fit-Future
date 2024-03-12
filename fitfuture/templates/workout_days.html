@@ -38,95 +38,96 @@
             {% endif %}
         </ul>
     </div>
-    <div class="workout-days">
-        <h1>Plan Your Workouts Here</h1>
-        <button>Monday</button>
-        <button>Tuesday</button>
-        <button>Wednesdey</button>
-        <button>Thursday</button>
-        <button>Friday</button>
-        <button>Saturday</button>
-        <button>Sunday</button>
-    </div>
-    {% block content %}{% endblock %}
-    <div class="muscle-group">
-        <p>Choose Muscle Group(s) to Workout On:</p>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/abs.png')}}">
-            <input type="checkbox" value="abdominals">
-            <label for="abdominals">abdominals</label>
+    <form id="workout-form" method="POST" action="">
+        <div class="workout-days">
+            <h1>Plan Your Workouts Here</h1>
+            <input type="hidden" id="selected-day" name="day" value="">
+            <input type="button" value="Monday" onclick="setSelectedDay('Monday')">
+            <input type="button" value="Tuesday" onclick="setSelectedDay('Tuesday')">
+            <input type="button" value="Wednesday" onclick="setSelectedDay('Wednesday')">
+            <input type="button" value="Thursday" onclick="setSelectedDay('Thursday')">
+            <input type="button" value="Friday" onclick="setSelectedDay('Friday')">
+            <input type="button" value="Saturday" onclick="setSelectedDay('Saturday')">
+            <input type="button" value="Sunday" onclick="setSelectedDay('Sunday')">
         </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/biceps.png')}}">
-            <input type="checkbox" value="biceps">
-            <label for="biceps">bicpes</label>
+        {% block content %}{% endblock %}
+        <div class="muscle-group" style="display: none;">
+            <p>Choose Muscle Group(s) to Workout On:</p>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/abs.png')}}">
+                <input type="checkbox" value="abdominals" name="muscle-group">
+                <label for="abdominals">abdominals</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/biceps.png')}}">
+                <input type="checkbox" value="biceps" name="muscle-group">
+                <label for="biceps" name="muscle-group">bicpes</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/calves.png')}}">
+                <input type="checkbox" value="calves" name="muscle-group">
+                <label for="calves">calves</label>
+            </div> 
+            <div>
+                <img src="{{ url_for('static', filename='workouts/chest.png')}}">
+                <input type="checkbox" value="chest" name="muscle-group">
+                <label for="chest">chest</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/forearm.png')}}">
+                <input type="checkbox" value="forearms" name="muscle-group">
+                <label for="forearms">forearms</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/glutes.png')}}">
+                <input type="checkbox" value="glutes" name="muscle-group">
+                <label for="glutes">glutes</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/hamstrings.png')}}">
+                <input type="checkbox" value="hamstrings" name="muscle-group">
+                <label for="hamstrings">hamstrings</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/lats.png')}}">
+                <input type="checkbox" value="lats" name="muscle-group">
+                <label for="lats">lats</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/lowerback.png')}}">
+                <input type="checkbox" value="lower_back" name="muscle-group">
+                <label for="lower_back">lower_back</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/middleback.png')}}">
+                <input type="checkbox" value="middle_back" name="muscle-group">
+                <label for="middle_back">mid_back</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/neck.png')}}">
+                <input type="checkbox" value="neck" name="muscle-group">
+                <label for="neck">neck</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/quadriceps.png')}}">
+                <input type="checkbox" value="quadriceps" name="muscle-group">
+                <label for="quadriceps">quadriceps</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/traps.png')}}">
+                <input type="checkbox" value="traps" name="muscle-group">
+                <label for="traps">traps</label>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='workouts/tricpes.png')}}">
+                <input type="checkbox" value="triceps" name="muscle-group">
+                <label for="tricpes">tricpes</label>
+            </div>
+            <input type="button" value="Submit" class="submit-btn">
         </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/calves.png')}}">
-            <input type="checkbox" value="calves">
-            <label for="calves">calves</label>
-        </div> 
-        <div>
-            <img src="{{ url_for('static', filename='workouts/chest.png')}}">
-            <input type="checkbox" value="chest">
-            <label for="chest">chest</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/forearm.png')}}">
-            <input type="checkbox" value="forearms">
-            <label for="forearms">forearms</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/glutes.png')}}">
-            <input type="checkbox" value="glutes">
-            <label for="glutes">glutes</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/hamstrings.png')}}">
-            <input type="checkbox" value="hamstrings">
-            <label for="hamstrings">hamstrings</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/lats.png')}}">
-            <input type="checkbox" value="lats">
-            <label for="lats">lats</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/lowerback.png')}}">
-            <input type="checkbox" value="lower_back">
-            <label for="lower_back">lower_back</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/middleback.png')}}">
-            <input type="checkbox" value="middle_back">
-            <label for="middle_back">mid_back</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/neck.png')}}">
-            <input type="checkbox" value="neck">
-            <label for="neck">neck</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/quadriceps.png')}}">
-            <input type="checkbox" value="quadriceps">
-            <label for="quadriceps">quadriceps</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/traps.png')}}">
-            <input type="checkbox" value="traps">
-            <label for="traps">traps</label>
-        </div>
-        <div>
-            <img src="{{ url_for('static', filename='workouts/tricpes.png')}}">
-            <input type="checkbox" value="triceps">
-            <label for="tricpes">tricpes</label>
-        </div>
-            <button type="submit" class="submit-btn">Submit</button>
-        </div>
-        <div class="workout-type" style="display: none;">
-    </div>
-    <button class="workout-done" style="display: none;">Done</button>
-
+        <div class="workout-type" style="display: none;"></div>
+        <input class="workout-done" style="display: none;" type="submit">
+    </form>
     <script>
     $(document).ready(function() {
         $('.submit-btn').click(function() {
@@ -152,8 +153,8 @@
 
                         $.each(data, function(index, exercise) {
                             var exerciseItem = $('<li>');
-                            var checkbox = $('<input type="checkbox">')
-                                .attr('name', 'selected-exercises')
+                            var checkbox = $('<input type="checkbox" name="workout-type">')
+                                .attr('name', 'workout-type')
                                 .attr('value', exercise.name);
                             var label = $('<label>').text(exercise.name);
 
@@ -175,7 +176,22 @@
                 });
             });
         });
-    }); 
+    });
+    function setSelectedDay(day) {
+        document.getElementById('selected-day').value = day;
+    }
+    function validateForm() {
+        var day = document.getElementById("day").value;
+        var muscleGroups = document.querySelectorAll('input[name="muscle-group"]:checked');
+        var workoutType = document.querySelector(".workout-type").value;
+
+        if (!day || muscleGroups.length === 0 || !workoutType) {
+            alert("Please fill out all required fields.");
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
     </script>
     <script src="{{ url_for('static', filename='js/workout.js') }}"></script>
 </body>

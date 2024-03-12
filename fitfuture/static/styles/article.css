@@ -1,2 +1,68 @@
+.article-top{
+    display: flex;
+    justify-content: space-between;
+}
 
+.article-top a{
+    border: solid;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    font-size: 18px;
+    margin-top: 15px;
+    padding-right: 1px;
+    padding-left: 15px;
+    padding-top: 7px;
+    height: 30px;
+    width: 150px;
+    border-radius: 6px;
+    border-color: rgb(26, 25, 25);
+    box-shadow: 5px 5px 5px rgba(0, 0.1, 0.1, 0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
 
+.article-top a:hover{
+    background-color: black;
+    color: white;
+}
+
+.article-container{
+    border: solid rgb(214, 214, 214);
+    margin: 10px;
+    margin-bottom: 20px;
+    max-height: 280px;
+    overflow:hidden;
+}
+
+.article-container div{
+    display: flex;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid rgb(214, 214, 214);
+    align-items: center;
+}
+
+.article-container div a{
+    margin-right: 10px;
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
+}
+
+.article-container h2{
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
+}
+
+.article-container h2 a{
+    text-decoration: underline;
+    color: rgba(0, 0, 0, 0.839);
+}
+
+.article-container p{
+    padding-left: 10px;
+}

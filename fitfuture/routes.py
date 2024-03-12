@@ -2,9 +2,9 @@ import os
 import secrets
 import requests
 from fitfuture import app, db, bcrypt
-from flask import render_template, url_for, redirect, flash, request
-from fitfuture.db_models import Article, User
-from fitfuture.forms import Registration, Login, UpdateAccount
+from flask import render_template, url_for, redirect, flash, request, abort
+from fitfuture.db_models import Article, User, Workout
+from fitfuture.forms import Registration, Login, UpdateAccount, ArticleForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -24,6 +24,45 @@ def articles():
     """
     articles = db.session.query(Article).all()
     return render_template("article.html", articles=articles)
+
+@app.route('/articles/new', methods=['GET', 'POST'])
+@login_required
+def new_article():
+    """
+    Article Page
+    """
+    form = ArticleForm()
+    if form.validate_on_submit():
+        article = Article(title=form.title.data, content=form.content.data, author=current_user)
+        db.session.add(article)
+        db.session.commit()
+        flash('Your post has been created!', 'success')
+        return redirect(url_for('articles'))
+    return render_template("create_article.html", form=form, legend='Create Article')
+
+@app.route('/articles/<int:article_id>')
+def article(article_id):
+    article = Article.query.get_or_404(article_id)
+    return render_template('show_article.html', article=article)
+
+@app.route('/articles/<int:article_id>/update', methods=['GET', 'POST'])
+@login_required
+def update_article(article_id):
+    article = Article.query.get_or_404(article_id)
+    if article.author != current_user:
+        abort(403)
+    form = ArticleForm()
+    if form.validate_on_submit():
+        article.title = form.title.data
+        article.content = form.content.data
+        db.session.commit()
+        flash('Your post has been updated', 'success')
+        return redirect(url_for('article', article_id=article.id))
+    if request.method == 'GET':
+        form.title.data = article.title
+        form.content.data = article.content
+    return render_template("create_article.html", form=form, legend='Update Article')
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -90,6 +129,25 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template("account.html", image_file=image_file, form=form)
 
+
 @app.route('/workout', methods=['GET', 'POST'])
+@login_required
 def workout():
+    if request.method == 'POST':
+        day = request.form.get('day')
+        muscle_groups = request.form.getlist('muscle-group')
+        workout_type = request.form.getlist('workout-type')  # Assuming there's an input for workout type
+        # Assuming 'user_id' comes from the current user
+        workout = Workout(workout_day=day, muscle_groups=', '.join(muscle_groups), workout_type=', '.join(workout_type), user_id=current_user.id)
+        db.session.add(workout)
+        db.session.commit()
+        flash('Workout data submitted Successfully')
     return render_template("workout.html")
+
+@app.route('/workout/my_workouts')
+def my_workouts():
+    workouts = db.session.query(Workout).all()
+    return render_template("my_workouts.html", workouts=workouts)
+@app.route('/success')
+def success():
+    return 'Workout data submitted successfully!'

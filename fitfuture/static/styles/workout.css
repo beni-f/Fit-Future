@@ -5,7 +5,7 @@ input[type="radio"] {
     display: none;
 }
 
-.workout-days button{
+.workout-days input{
     margin: 20px;
     width: 70%;
     height: 50px;
@@ -46,7 +46,8 @@ input[type="radio"] {
 }
 
 .workout-done,
-.muscle-group button{
+.submit-btn{
+    border: solid;
     display: block;
     width: 150px;
     height: 40px;

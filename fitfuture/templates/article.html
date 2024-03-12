@@ -1,4 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
-
+    <div class="article-top">
+        <h1>Articles</h1>
+        <a href="{{url_for('new_article')}}">Create Article</button>
+    </div>
+    {% for article in articles %}
+        <article>
+            <div class="article-container">
+                <div>
+                    <a href="#">{{ article.author.username }} </a>
+                    <small> {{ article.date_posted.strftime('%Y-%m-%d') }}</small>
+                </div>
+                <h2><a href="{{ url_for('article', article_id=article.id) }}">{{ article.title }}</a></h2>
+                <p>{{ article.content }}</p>    
+            </div>
+        </article>
+    {% endfor %}
 {% endblock content %}

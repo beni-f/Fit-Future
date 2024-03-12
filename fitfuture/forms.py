@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_login import current_user
-from wtforms import StringField, IntegerField, PasswordField, SubmitField, BooleanField, SelectField
+from wtforms import StringField, IntegerField, PasswordField, SubmitField, BooleanField, SelectField, TextAreaField
 from flask_wtf.file import FileField, FileAllowed
 from wtforms.validators import DataRequired, Length, Email, NumberRange, EqualTo, ValidationError
 from fitfuture.db_models import User
@@ -51,3 +51,12 @@ class UpdateAccount(FlaskForm):
             user_email = User.query.filter_by(email=email.data).first()
             if user_email:
                 raise ValidationError('Email Already Exists.')
+            
+class Workout(FlaskForm):
+    muscle_group = StringField('Muscle Group')
+    submit = SubmitField('Submit')
+
+class ArticleForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    submit = SubmitField('Post')

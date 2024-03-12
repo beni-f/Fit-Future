@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+    <article>
+        <div>
+            <div>
+                <a href="#">{{ article.author.username }} </a>
+                <small> {{ article.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.content }}</p>    
+        </div>
+    </article>
+{% endblock content %}

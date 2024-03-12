@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content%}
+    <h1>My Workouts</h1>
+    {% if not workouts %}
+        <p>You have no workouts planned. Click <a>here</a> to plan your workout</p>
+    {% else %}
+        {% for workout in workouts %}
+            <div>
+                <h1>{{ workout.workout_day }}</h1>
+                <h3>{{ workout.muscle_groups }}</h3>
+                <p>{{ workout.workout_type }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

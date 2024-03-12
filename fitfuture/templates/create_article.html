@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="account-container">
+        <form method="POST" action="" class="form-box">
+            <legend>{{ legend }}</legend>
+            {{ form.hidden_tag() }}
+            <div class="article-form">
+                <label for="title" class="title-label">Title</label>
+                {% if form.title.errors %}
+                        {{ form.title(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.title.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.title(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <div class="article-form">
+                <label for="content" class="content-label">Content</label>
+                {% if form.content.errors %}
+                        {{ form.content(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                        {% for error in form.content.errors%}
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                {% else %}
+                    {{ form.content(class='form-control form-control-lg') }}  
+                {% endif %}
+            </div>
+            <div class=" btn">
+                {{ form.submit }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

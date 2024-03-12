@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fit Future</title>
-    
     <!--Font style CSS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +13,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/account.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/workout.css') }}">
-
-    <!--More CSS links-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/article.css') }}">
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-FyZjFBnEriD6D1qEXZexnMuy0N5wM1g0T8YZvIsfYHxKCfGCD8Pkf0r0ZUqzU5yJ" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/c6a8e8b0a7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" rel="stylesheet">
     <!---JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+    </head>
 </head>
 <body>
     <div class="navbar">
@@ -40,5 +40,10 @@
     </div>
     {% block content %}{% endblock %}
     <script src="{{ url_for('static', filename='js/workout.js') }}"></script>
+
+      <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Multiselect JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
 </body>
 </html>
