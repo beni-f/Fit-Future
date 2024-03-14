@@ -5,9 +5,6 @@ body{
     background-color: rgb(251, 251, 251);
 }
 
-
-
-
 .navbar{
     width: 85%;
     margin: auto;
@@ -66,24 +63,29 @@ body{
 
 .bottom-body h1{
     text-align: center;
-    color: grey;
-    font-size: 40px;
+    color: black;
+    font-size: 50px;
+    margin-top: 10%;
+    margin-bottom: 50px;
 }
 
 .container{
     top: 50%;
     max-width: 1200px;
+    height: 500px;
     margin: auto;
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5rem;
+    border-bottom: solid rgb(235, 231, 231);
 }
 
 .content{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 70px;
 }
 
 .content h1{
@@ -106,20 +108,20 @@ body{
 }
 
 .content button{
-    background-color: rgb(188, 184, 184);
-    font-size: 16px;
-    border: none;
+    background-color: white;
+    border: solid;
+    font-size: 18px;
     height: 50px;
-    width: 120px;
+    width: 130px;
     border-radius: 50px;
     cursor: pointer;
     margin: 30px 15px;
     transition: 0.5s;
 }
 
-.content button:hover{
-    background-color: black;
-    color: white;
+.content button a{
+    color: black;
+    text-decoration: none;
 }
 
 .image-container{
@@ -128,6 +130,7 @@ body{
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     place-content: center;
+    margin-top: 100px;
 }
 
 .image-container img {
@@ -163,30 +166,35 @@ body{
 .image-content li{
     margin-bottom: 5px;
 }
+
+.workout-wrapper,
 .article-wrapper {
+    max-height: 300px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 84%;
-    margin: 0 auto;
-     /* Initially hide the articles */
-    opacity: 0;
-    transform: translateY(20px); /* Move articles slightly down */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Apply transition */
+    overflow-x: auto;
+    border-bottom: solid rgb(235, 231, 231);
 }
 
+.workout-wrapper::-webkit-scrollbar,
+.article-wrapper::-webkit-scrollbar{
+    width: 0;
+}
+
+.workout-wrapper div,
 .articles {
+    height: 250px;
     flex: 0 0 calc(30% - 40px);
-    border: 1px solid #ccc; /* Add border for better visibility */
+    border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px;
     padding: 20px;
-    transition: transform 0.3s ease; /* Add transition for hover effect */
+    margin: 20px;
+    transition: transform 0.3s ease;
 }
 
+.workout-wrapper div:hover,
 .articles:hover {
-    transform: translateY(-5px); /* Move article up slightly on hover */
+    transform: translateY(-5px);
 }
 
 .article-title h1 {
@@ -199,7 +207,122 @@ body{
     color: #666;
 }
 
+.workout-wrapper div{
+    height: 200px;
+}
+.workout-wrapper div h2{
+    border-bottom: solid;
+    border-bottom-color: lightgrey;
+    color: rgb(27, 27, 27);
+}
+
+.workout-wrapper div h3{
+    margin-top: 30px;
+}
 .fade-in {
     opacity: 1;
     transform: translateY(0);
 }
+
+.footer{
+    background-color: black;
+    color: white;
+    padding: 70px 0;
+}
+
+.footer-container{
+    max-width: 1170;
+}
+
+.footer-container ul{
+    list-style: none;
+}
+
+.footer-logo{
+    height: 100px;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.col{
+    width: 25%;
+
+}
+
+.col h4{
+    font-size: 18px;
+    margin-left: 50px;
+    color: white;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+}
+
+.col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: white;
+    height: 2px;
+    box-sizing: border-box;
+    width: 75px;
+}
+
+.col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.col ul li a:hover{
+    color: white;
+    padding-left: 8px;
+}
+
+.social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+.about-container{
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-container h1{
+    color: #333;
+    text-align: center;
+}
+
+.about-container p{
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.hidden{
+    opacity: 0;
+    transition: all 3s;
+}
+
+.show{
+    opacity: 1;
+}
+
+

@@ -1,30 +1,22 @@
 .article-top{
     display: flex;
     justify-content: space-between;
+    margin: 25px;
 }
 
-.article-top a{
-    border: solid;
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    font-weight: bolder;
-    font-size: 18px;
-    margin-top: 15px;
-    padding-right: 1px;
-    padding-left: 15px;
-    padding-top: 7px;
-    height: 30px;
-    width: 150px;
-    border-radius: 6px;
-    border-color: rgb(26, 25, 25);
-    box-shadow: 5px 5px 5px rgba(0, 0.1, 0.1, 0.1);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.article-top a:hover{
+.article-top button{
     background-color: black;
+    border: none;
+    height: 40px;
+    width: 150px;
+    margin-top: 10px;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.article-top button a,
+.article-top button a:hover{
+    text-decoration: none;
     color: white;
 }
 
@@ -65,4 +57,52 @@
 
 .article-container p{
     padding-left: 10px;
+}
+
+.show-article div{
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.update-btn{
+    margin-left: 80%;
+    border: solid;
+    background-color: black;
+    font-size: 14px;
+    height: 32px;
+    width: 70px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.update-btn a,
+.update-btn a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+
+.show-article h2{
+    margin-top: 0px;
+}
+
+.article-form{
+    margin: 10px;
+    margin-top: 30px;
+}
+
+.article-form label{
+    display: block;
+    font-weight: bold;
+}
+
+.article-form input{
+    width: 100%;
+    height: 20px;
+}
+
+.content-input{
+    width: 100%;
+    height: 250px;
 }

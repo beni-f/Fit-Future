@@ -8,7 +8,9 @@
             <p>
                 Join now and start your journey with us
             </p>
-            <button>Join Now</button>
+            {% if current_user.is_authenticated %}
+                <button><a href="{{ url_for('register') }}">Join Now</a></button>
+            {% endif %}
         </div>
         <div class="image-container">
             <img src="{{ url_for('static', filename='images/img-1.jpg') }}">
@@ -22,8 +24,8 @@
         </div>
     </section>
     <div class="bottom-body">
-        <h1> Trending Articles </h1>
-        <div class="article-wrapper">
+        <h1 class="hidden"> Trending Articles </h1>
+        <div class="article-wrapper hidden">
             {% for article in articles %}
             <div class="articles">
                 <div class="article-date">
@@ -32,11 +34,43 @@
                 <div class="article-title">
                     <h1>{{ article.title }}</h1>
                 </div>
-                <div class="article-content">
-                    <p>{{ article.content }}</p>
-                </div>
             </div>
             {% endfor %}
         </div>
+        <h1>Your Workouts</h1>
+        {% if current_user.is_authenticated %}
+            <div class="workout-wrapper hidden">
+                {% for workout in workouts %}
+                    <div>
+                        <h2><a href="{{ url_for('my_workouts')}}">{{ workout.workout_day }}</a></h2>
+                        <h3>{{ workout.muscle_groups }}</h3>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
+    <footer class=footer>
+        <div class="footer-container">
+            <div class="row">  
+                <img src="{{ url_for('static', filename='images/logo-white.png') }}" class="footer-logo">
+                <div class="col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="{{ url_for('about') }}">about us</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Follow us</h4>
+                    <div class="social-links">
+                        <ul>
+                            <a><i class="fab fa-facebook-f"></i></a>
+                            <a><i class="fab fa-twitter"></i></a>
+                            <a><i class="fab fa-telegram"></i></a>
+                            <a><i class="fab fa-instagram"></i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 {% endblock content %}

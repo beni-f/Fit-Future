@@ -14,8 +14,9 @@ def home():
     """
     Home Page
     """
+    workouts = db.session.query(Workout).all()
     articles = db.session.query(Article).all()
-    return render_template("home.html", articles=articles)
+    return render_template("home.html", articles=articles, workouts=workouts)
 
 @app.route('/articles')
 def articles():
@@ -151,3 +152,7 @@ def my_workouts():
 @app.route('/success')
 def success():
     return 'Workout data submitted successfully!'
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
