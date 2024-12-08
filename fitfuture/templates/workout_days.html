@@ -41,6 +41,7 @@
     <form id="workout-form" method="POST" action="">
         <div class="workout-days">
             <h1>Plan Your Workouts Here</h1>
+            <button><a href="{{ url_for('my_workouts') }}">My Workouts</a></button>
             <input type="hidden" id="selected-day" name="day" value="">
             <input type="button" value="Monday" onclick="setSelectedDay('Monday')">
             <input type="button" value="Tuesday" onclick="setSelectedDay('Tuesday')">

@@ -5,7 +5,29 @@ input[type="radio"] {
     display: none;
 }
 
+.workout-days h1{
+    display: inline-block;
+    margin-right: 35%;
+}
+
+.workout-days button{
+    background-color: white;
+    border: solid black;
+    height: 45px;
+    width: 150px;
+    border-radius: 8px;
+    padding: 0;
+}
+
+.workout-days button a{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    font-size: 16px;
+}
+
 .workout-days input{
+    display: block;
     margin: 20px;
     width: 70%;
     height: 50px;
@@ -110,4 +132,38 @@ input[type="radio"] {
 
 .workout-type label:hover{
     background-color: lightgray;
+}
+
+.no-workout{
+    margin: 20%;
+    margin-top: 10%;
+    font-size: 22px;
+}
+
+.my-workouts-h1{
+    margin: 3%;
+}
+
+.my-workout{
+    display: inline-block;
+    border: solid;
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    text-transform: capitalize;
+    align-items: center;
+}
+
+.my-workout h1,
+.my-workout h3,
+.my-workout p{
+    margin: 4px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-bottom: solid #ccc;
+}
+
+.my-workout p{
+    margin-bottom: 5px;
 }

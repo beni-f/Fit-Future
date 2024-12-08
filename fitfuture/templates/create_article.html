@@ -5,7 +5,7 @@
             <legend>{{ legend }}</legend>
             {{ form.hidden_tag() }}
             <div class="article-form">
-                <label for="title" class="title-label">Title</label>
+                {{ form.title.label(class="form-control-label") }}
                 {% if form.title.errors %}
                         {{ form.title(class='form-control form-control-lg is-invalid') }}
                         <div class="invalid-feedback">
@@ -19,7 +19,7 @@
                 {% endif %}
             </div>
             <div class="article-form">
-                <label for="content" class="content-label">Content</label>
+                {{ form.content.label(class="form-control-label") }}
                 {% if form.content.errors %}
                         {{ form.content(class='form-control form-control-lg is-invalid') }}
                         <div class="invalid-feedback">

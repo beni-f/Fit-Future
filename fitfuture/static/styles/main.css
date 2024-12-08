@@ -66,7 +66,6 @@ body{
     color: black;
     font-size: 50px;
     margin-top: 10%;
-    margin-bottom: 50px;
 }
 
 .container{
@@ -182,12 +181,12 @@ body{
 
 .workout-wrapper div,
 .articles {
-    height: 250px;
     flex: 0 0 calc(30% - 40px);
     border: 1px solid #ccc;
+    border: solid;
+    height: 300px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
     margin: 20px;
     transition: transform 0.3s ease;
 }
@@ -197,28 +196,53 @@ body{
     transform: translateY(-5px);
 }
 
-.article-title h1 {
-    font-size: 20px;
-    margin-top: 0;
+.article-date{
+    padding: 20px;
+    border-bottom: solid #ccc;
 }
 
-.article-content p {
-    margin-top: 10px;
-    color: #666;
+.article-title h1 {
+    font-size: 30px;
+    margin-top: 0;
+    margin-top: 5px;
+    padding: 0;
+    border-bottom: solid #ccc;
+    border-width: 100%;
+}
+
+.article-content{
+    white-space: pre-line;
+    padding: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;    -webkit-box-orient: vertical;
 }
 
 .workout-wrapper div{
     height: 200px;
 }
+
+.workout-wrapper{
+    margin-bottom: 30px;
+}
+
 .workout-wrapper div h2{
     border-bottom: solid;
     border-bottom-color: lightgrey;
-    color: rgb(27, 27, 27);
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-bottom: 20px;
 }
 
+
+
 .workout-wrapper div h3{
-    margin-top: 30px;
+    padding-top: 10px;
+    text-transform: capitalize;
+    margin-left: 10px;
 }
+
 .fade-in {
     opacity: 1;
     transform: translateY(0);
@@ -247,6 +271,12 @@ body{
 .row{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.row img{
+    width: 150px;
+    height: 120px;
 }
 
 .col{
@@ -314,6 +344,15 @@ body{
 .about-container p{
     line-height: 1.6;
     margin-bottom: 20px;
+}
+
+
+
+.lead{
+    color: black;
+    padding: 10%;
+    padding-left: 40%;
+    padding-top: 5%;
 }
 
 .hidden{

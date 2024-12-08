@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block content%}
-    <h1>My Workouts</h1>
+    <h1 class="my-workouts-h1">My Workouts</h1>
     {% if not workouts %}
-        <p>You have no workouts planned. Click <a>here</a> to plan your workout</p>
+        <p class="no-workout">You have no workouts planned. Click <a href="{{ url_for('workout') }}">here</a> to plan your workout</p>
     {% else %}
         {% for workout in workouts %}
-            <div>
+            <div class="my-workout">
                 <h1>{{ workout.workout_day }}</h1>
                 <h3>{{ workout.muscle_groups }}</h3>
                 <p>{{ workout.workout_type }}</p>

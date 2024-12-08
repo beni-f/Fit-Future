@@ -8,7 +8,7 @@
             <p>
                 Join now and start your journey with us
             </p>
-            {% if current_user.is_authenticated %}
+            {% if not current_user.is_authenticated %}
                 <button><a href="{{ url_for('register') }}">Join Now</a></button>
             {% endif %}
         </div>
@@ -29,24 +29,33 @@
             {% for article in articles %}
             <div class="articles">
                 <div class="article-date">
-                    {{article.date_posted}}/{{article.author.firstname}} {{article.author.lastname}}
+                    {{ article.date_posted.strftime('%Y-%m-%d') }}/{{article.author.firstname}} {{article.author.lastname}}
                 </div>
                 <div class="article-title">
-                    <h1>{{ article.title }}</h1>
+                    <h1><a href="{{ url_for('article', article_id=article.id) }}">{{ article.title }}</a></h1>
+                </div>
+                <div class="article-content">
+                    <p>{{ article.content }}</p>
                 </div>
             </div>
             {% endfor %}
         </div>
-        <h1>Your Workouts</h1>
+        <h1 class="list-workouts">Your Workouts</h1>
         {% if current_user.is_authenticated %}
-            <div class="workout-wrapper hidden">
-                {% for workout in workouts %}
-                    <div>
-                        <h2><a href="{{ url_for('my_workouts')}}">{{ workout.workout_day }}</a></h2>
-                        <h3>{{ workout.muscle_groups }}</h3>
-                    </div>
-                {% endfor %}
-            </div>
+            {% if workouts %}
+                <div class="workout-wrapper hidden">
+                    {% for workout in workouts %}
+                        <div>
+                            <h2><a href="{{ url_for('my_workouts')}}">{{ workout.workout_day }}</a></h2>
+                            <h3>{{ workout.muscle_groups }}</h3>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="no-workout" style="margin: 8%; margin-left: 30%; font-size: 20px;">You have no workouts planned. Click <a href="{{ url_for('workout') }}">here</a> to plan your workout</p>
+            {% endif %}
+        {% else %}
+            <h3 class="lead">Sign Up <a href="{{ url_for('register') }}">here</a> and plan your workouts</h3>
         {% endif %}
     </div>
     <footer class=footer>

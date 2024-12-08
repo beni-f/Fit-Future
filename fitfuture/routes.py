@@ -14,7 +14,9 @@ def home():
     """
     Home Page
     """
-    workouts = db.session.query(Workout).all()
+    workouts = []
+    if current_user.is_authenticated:
+        workouts = db.session.query(Workout).filter_by(user_id=current_user.id).all()
     articles = db.session.query(Article).all()
     return render_template("home.html", articles=articles, workouts=workouts)
 
@@ -147,7 +149,9 @@ def workout():
 
 @app.route('/workout/my_workouts')
 def my_workouts():
-    workouts = db.session.query(Workout).all()
+    workouts = []
+    if current_user.is_authenticated:
+        workouts = db.session.query(Workout).filter_by(user_id=current_user.id).all()
     return render_template("my_workouts.html", workouts=workouts)
 @app.route('/success')
 def success():

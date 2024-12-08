@@ -4,6 +4,10 @@
     margin: 25px;
 }
 
+.article-top h1{
+    margin: 30px;
+}
+
 .article-top button{
     background-color: black;
     border: none;
@@ -22,7 +26,9 @@
 
 .article-container{
     border: solid rgb(214, 214, 214);
+    width: 1000px;
     margin: 10px;
+    margin-left: 10%;
     margin-bottom: 20px;
     max-height: 280px;
     overflow:hidden;
@@ -57,6 +63,7 @@
 
 .article-container p{
     padding-left: 10px;
+    white-space: pre-line;
 }
 
 .show-article div{
@@ -85,6 +92,14 @@
 
 .show-article h2{
     margin-top: 0px;
+}
+
+.show-article{
+    margin: 15px;
+}
+
+.show-article p{
+    white-space: pre-line;
 }
 
 .article-form{
